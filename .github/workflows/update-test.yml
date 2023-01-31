@@ -2,7 +2,7 @@ name: test
 
 on:
   schedule:
-    - cron: '0 * * * *' #UTC
+    - cron: '0 0 * * *' #UTC
   push:
     branches:
       - 'main'
