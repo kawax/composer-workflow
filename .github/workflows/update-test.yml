@@ -16,3 +16,4 @@ jobs:
       git-name: kawax
       git-email: 1502086+kawax@users.noreply.github.com
       composer-path: ./composer
+      branch: composer-update-v1
