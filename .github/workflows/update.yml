@@ -1,0 +1,83 @@
+name: composer update
+
+on:
+  workflow_call:
+    inputs:
+      php:
+        default: '8.2'
+        required: false
+        type: string
+      extensions:
+        default: 'mbstring'
+        required: false
+        type: string
+      composer-path:
+        default: ''
+        required: false
+        type: string
+      git-name:
+        default: 'github-actions[bot]'
+        required: false
+        type: string
+      git-email:
+        default: '41898282+github-actions[bot]@users.noreply.github.com'
+        required: false
+        type: string
+      branch:
+        default: 'composer-update'
+        required: false
+        type: string
+      title:
+        default: 'composer update'
+        required: false
+        type: string
+      commit-message:
+        default: 'composer update'
+        required: false
+        type: string
+    secrets:
+      token:
+        required: true
+
+jobs:
+  composer_update_job:
+    name: composer update
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup PHP, with composer and extensions
+        uses: shivammathur/setup-php@v2 #https://github.com/shivammathur/setup-php
+        with:
+          php-version: ${{ inputs.php }}
+          extensions: ${{ inputs.extensions }}
+          coverage: none
+      - name: Install Composer dependencies
+        working-directory: ${{ inputs.composer-path }}
+        run: composer install --no-interaction --no-progress --prefer-dist --optimize-autoloader
+      - name: Composer update
+        id: composer
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const result = await exec.getExecOutput('composer', ['update', '--no-install', '--working-dir=${{ inputs.composer-path }}'], {
+              ignoreReturnCode: true,
+            })
+            const output = result.stdout + result.stderr
+            core.setOutput('output', output.match(/^.* - .*$/gm)?.map(str => str.trim()).join("\n"))
+      - name: Composer output
+        run: |
+          echo "${{ steps.composer.outputs.output }}"
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.token }}
+          branch: ${{ inputs.branch }}
+          commit-message: ${{ inputs.commit-message }}
+          committer: ${{ inputs.git-name }} <${{ inputs.git-email }}>
+          author: ${{ inputs.git-name }} <${{ inputs.git-email }}>
+          title: ${{ inputs.title }}
+          body: ${{ steps.composer.outputs.output }}
+          delete-branch: true
+          add-paths: |
+            *.lock

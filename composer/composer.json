@@ -1,0 +1,19 @@
+{
+    "name": "revolution/composer-workflow",
+    "type": "project",
+    "require": {
+        "laravel/framework": "^9.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Revolution\\ComposerWorkflow\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "kawax",
+            "email": "kawaxbiz@gmail.com"
+        }
+    ]
+}
