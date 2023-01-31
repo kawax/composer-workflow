@@ -32,7 +32,7 @@ jobs:
 | extensions     | php extensions (same as setup-php)           | mbstring                                                |
 | git-name       | git name                                     | `github-actions[bot]`                                   |
 | git-email      | git email                                    | `41898282+github-actions[bot]@users.noreply.github.com` |
-| composer-path  | working directory                            | (blank)                                                 |
+| composer-path  | working directory                            | `./`                                                    |
 | branch         | git branch (Always works on a single branch) | composer-update                                         |
 | title          | Pull request title                           | composer update                                         |
 | commit-message | commit message                               | composer update                                         |

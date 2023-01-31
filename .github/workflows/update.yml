@@ -12,7 +12,7 @@ on:
         required: false
         type: string
       composer-path:
-        default: ''
+        default: './'
         required: false
         type: string
       git-name:
