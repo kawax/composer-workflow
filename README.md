@@ -28,7 +28,7 @@ jobs:
 ## Inputs
 | name           | description                                  | default                                                 |
 |----------------|----------------------------------------------|---------------------------------------------------------|
-| php            | php version (same as setup-php)              | 8.2                                                     |
+| php            | php version (same as setup-php)              | 8.3                                                     |
 | extensions     | php extensions (same as setup-php)           | mbstring                                                |
 | git-name       | git name                                     | `github-actions[bot]`                                   |
 | git-email      | git email                                    | `41898282+github-actions[bot]@users.noreply.github.com` |
@@ -44,7 +44,7 @@ jobs:
     secrets:
       token: ${{ secrets.ACTION_TOKEN }}
     with:
-      php: 8.2
+      php: 8.3
       extensions: mbstring
       git-name: github-actions[bot]
       git-email: 41898282+github-actions[bot]@users.noreply.github.com
