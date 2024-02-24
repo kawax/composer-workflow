@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       php:
-        default: '8.2'
+        default: '8.3'
         required: false
         type: string
       extensions:
@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup PHP, with composer and extensions
         uses: shivammathur/setup-php@v2 #https://github.com/shivammathur/setup-php
         with:
@@ -69,7 +69,7 @@ jobs:
         run: |
           echo "${{ steps.composer.outputs.output }}"
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4 #https://github.com/peter-evans/create-pull-request
+        uses: peter-evans/create-pull-request@v6 #https://github.com/peter-evans/create-pull-request
         with:
           token: ${{ secrets.token }}
           branch: ${{ inputs.branch }}

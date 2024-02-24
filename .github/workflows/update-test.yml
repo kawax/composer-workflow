@@ -5,14 +5,15 @@ on:
     - cron: '0 0 * * *' #UTC
   push:
     branches:
-      - 'main'
+      - 'v1'
 
 jobs:
   composer:
-    uses: kawax/composer-workflow/.github/workflows/update.yml@main
+    uses: kawax/composer-workflow/.github/workflows/update.yml@v1
     secrets:
       token: ${{ secrets.ACTION_TOKEN }}
     with:
       git-name: kawax
       git-email: 1502086+kawax@users.noreply.github.com
       composer-path: ./composer
+      branch: composer-update-v1
