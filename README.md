@@ -20,7 +20,7 @@ on:
 
 jobs:
   composer:
-    uses: kawax/composer-workflow/.github/workflows/update.yml@v1
+    uses: kawax/composer-workflow/.github/workflows/update.yml@main
     secrets:
       token: ${{ secrets.ACTION_TOKEN }}
 ```
@@ -40,7 +40,7 @@ jobs:
 ```yaml
 jobs:
   composer:
-    uses: kawax/composer-workflow/.github/workflows/update.yml@v1
+    uses: kawax/composer-workflow/.github/workflows/update.yml@main
     secrets:
       token: ${{ secrets.ACTION_TOKEN }}
     with:
