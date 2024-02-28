@@ -57,7 +57,7 @@ jobs:
         run: composer install --no-interaction --no-progress --prefer-dist --optimize-autoloader
       - name: Composer update
         id: composer
-        uses: actions/github-script@v6 #https://github.com/actions/github-script
+        uses: actions/github-script@v7 #https://github.com/actions/github-script
         with:
           script: |
             const result = await exec.getExecOutput('composer', ['update', '--no-install', '--working-dir=${{ inputs.composer-path }}'], {
