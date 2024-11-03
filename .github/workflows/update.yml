@@ -54,7 +54,7 @@ jobs:
           coverage: none
       - name: Install Composer dependencies
         working-directory: ${{ inputs.composer-path }}
-        run: composer install --no-interaction --no-progress --prefer-dist --optimize-autoloader
+        run: composer install -q
       - name: Composer update
         id: composer
         uses: actions/github-script@v7 #https://github.com/actions/github-script
@@ -69,7 +69,7 @@ jobs:
         run: |
           echo "${{ steps.composer.outputs.output }}"
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6 #https://github.com/peter-evans/create-pull-request
+        uses: peter-evans/create-pull-request@v7 #https://github.com/peter-evans/create-pull-request
         with:
           token: ${{ secrets.token }}
           branch: ${{ inputs.branch }}
