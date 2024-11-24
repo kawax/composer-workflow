@@ -54,7 +54,7 @@ jobs:
           coverage: none
       - name: Install Composer dependencies
         working-directory: ${{ inputs.composer-path }}
-        run: composer install -q
+        run: composer install
       - name: Composer update
         id: composer
         uses: actions/github-script@v7 #https://github.com/actions/github-script
