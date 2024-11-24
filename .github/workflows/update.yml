@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       php:
-        default: '8.4'
+        default: 'latest'
         required: false
         type: string
       extensions:
