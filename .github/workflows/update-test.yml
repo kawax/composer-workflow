@@ -10,6 +10,8 @@ on:
 jobs:
   composer:
     uses: kawax/composer-workflow/.github/workflows/update.yml@v1
+    secrets:
+      token: ${{ github.token }}
     with:
       git-name: kawax
       git-email: 1502086+kawax@users.noreply.github.com
