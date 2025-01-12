@@ -4,8 +4,18 @@ Run `composer update` and create pull request.
 
 ## Usage
 
+### Workflow permissions
+
+To use this workflow, you need to allow creating pull requests in the repository settings - Actions - General.
+
+- Read and write permissions
+- Allow GitHub Actions to create and approve pull requests
+
 ### Create Personal access tokens (classic)
-Then, set a token in the repository's secrets as `ACTION_TOKEN`
+
+Alternatively, you can create a personal access token. If the above settings do not work, please try this method.
+
+Set the token in the repository's secrets as `ACTION_TOKEN`
 
 `GITHUB_TOKEN` can't trigger other actions. If you want to run tests after pull request, you need a token.
 
