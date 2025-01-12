@@ -32,6 +32,22 @@ jobs:
   composer:
     uses: kawax/composer-workflow/.github/workflows/update.yml@v1
     secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
+```
+
+If you use `ACTION_TOKEN`.
+
+```yaml
+name: composer update
+
+on:
+  schedule:
+    - cron: '0 0 * * *' #UTC
+
+jobs:
+  composer:
+    uses: kawax/composer-workflow/.github/workflows/update.yml@v1
+    secrets:
       token: ${{ secrets.ACTION_TOKEN }}
 ```
 
