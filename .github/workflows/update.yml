@@ -37,8 +37,7 @@ on:
         type: string
     secrets:
       token:
-        required: false
-        default: ${{ github.token }}
+        required: true
 
 jobs:
   composer_update_job:
