@@ -37,15 +37,13 @@ on:
         type: string
     secrets:
       token:
-        required: true
+        required: false
+        default: ${{ github.token }}
 
 jobs:
   composer_update_job:
     name: composer update
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
