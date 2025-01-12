@@ -11,7 +11,7 @@ jobs:
   composer:
     uses: kawax/composer-workflow/.github/workflows/update.yml@v1
     secrets:
-      token: ${{ github.token }}
+      token: ${{ secrets.GITHUB_TOKEN }}
     with:
       git-name: kawax
       git-email: 1502086+kawax@users.noreply.github.com
