@@ -2,7 +2,7 @@
     "name": "revolution/composer-workflow",
     "type": "project",
     "require": {
-        "laravel/framework": "^11.0"
+        "laravel/framework": "^12.0"
     },
     "license": "MIT",
     "autoload": {
