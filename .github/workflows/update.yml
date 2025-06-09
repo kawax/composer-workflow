@@ -39,6 +39,8 @@ on:
       token:
         required: true
 
+permissions: read-all
+
 jobs:
   composer_update_job:
     name: composer update
