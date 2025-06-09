@@ -7,6 +7,8 @@ on:
     branches:
       - 'v1'
 
+permissions: read-all
+
 jobs:
   composer:
     uses: kawax/composer-workflow/.github/workflows/update.yml@v1
