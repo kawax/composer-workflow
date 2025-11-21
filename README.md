@@ -54,7 +54,7 @@ jobs:
 ## Inputs
 | name           | description                                  | default                                                 |
 |----------------|----------------------------------------------|---------------------------------------------------------|
-| php            | php version (same as setup-php)              | 'latest'                                                |
+| php            | php version (same as setup-php)              | `latest`                                                |
 | extensions     | php extensions (same as setup-php)           | mbstring                                                |
 | git-name       | git name                                     | `github-actions[bot]`                                   |
 | git-email      | git email                                    | `41898282+github-actions[bot]@users.noreply.github.com` |
@@ -80,5 +80,5 @@ jobs:
       commit-message: composer update
 ```
 
-## LICENCE
+## LICENSE
 MIT
