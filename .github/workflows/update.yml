@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Setup PHP, with composer and extensions
         uses: shivammathur/setup-php@v2 #https://github.com/shivammathur/setup-php
         with:
@@ -57,7 +57,7 @@ jobs:
         run: composer install
       - name: Composer update
         id: composer
-        uses: actions/github-script@v7 #https://github.com/actions/github-script
+        uses: actions/github-script@v8 #https://github.com/actions/github-script
         with:
           script: |
             const result = await exec.getExecOutput('composer', ['update', '--no-install', '--working-dir=${{ inputs.composer-path }}'], {
