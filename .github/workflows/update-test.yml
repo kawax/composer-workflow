@@ -13,7 +13,7 @@ jobs:
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
     with:
-      php: '8.4'
+      php: 8.5
       git-name: kawax
       git-email: 1502086+kawax@users.noreply.github.com
       composer-path: ./composer
