@@ -70,7 +70,7 @@ jobs:
     secrets:
       token: ${{ secrets.ACTION_TOKEN }}
     with:
-      php: 8.4
+      php: 8.5
       extensions: mbstring
       git-name: github-actions[bot]
       git-email: 41898282+github-actions[bot]@users.noreply.github.com
