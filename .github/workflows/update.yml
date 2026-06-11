@@ -57,7 +57,7 @@ jobs:
         run: composer install
       - name: Composer update
         id: composer
-        uses: actions/github-script@v8 #https://github.com/actions/github-script
+        uses: actions/github-script@v9 #https://github.com/actions/github-script
         with:
           script: |
             const result = await exec.getExecOutput('composer', ['update', '--no-install', '--working-dir=${{ inputs.composer-path }}'], {
@@ -69,7 +69,7 @@ jobs:
         run: |
           echo "${{ steps.composer.outputs.output }}"
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7 #https://github.com/peter-evans/create-pull-request
+        uses: peter-evans/create-pull-request@v8 #https://github.com/peter-evans/create-pull-request
         with:
           token: ${{ secrets.token }}
           branch: ${{ inputs.branch }}
