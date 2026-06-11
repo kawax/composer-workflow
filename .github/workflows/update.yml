@@ -45,9 +45,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       - name: Setup PHP, with composer and extensions
-        uses: shivammathur/setup-php@v2 #https://github.com/shivammathur/setup-php
+        uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # 2.37.2
         with:
           php-version: ${{ inputs.php }}
           extensions: ${{ inputs.extensions }}
@@ -57,7 +57,7 @@ jobs:
         run: composer install
       - name: Composer update
         id: composer
-        uses: actions/github-script@v9 #https://github.com/actions/github-script
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
             const result = await exec.getExecOutput('composer', ['update', '--no-install', '--working-dir=${{ inputs.composer-path }}'], {
@@ -69,7 +69,7 @@ jobs:
         run: |
           echo "${{ steps.composer.outputs.output }}"
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v8 #https://github.com/peter-evans/create-pull-request
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
           token: ${{ secrets.token }}
           branch: ${{ inputs.branch }}
